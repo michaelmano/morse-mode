@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <section class="p-4">
+      <input type="text" v-model="text" class="w-full p-2 border shadow"/>
       <div v-for="(value, key) in keys" :key="`key-${value}`">
           <span v-html="key"/> : <span v-html="value"/>
       </div>
@@ -10,6 +11,7 @@ export default {
   name: 'Keyboard',
   data() {
     return {
+      text: '',
       keys: {
         A: '.-',
         B: '-...',
@@ -53,6 +55,11 @@ export default {
         '=': '-...-',
       },
     };
+  },
+  watch: {
+      text(val) {
+          console.log(val);
+      },
   },
 };
 </script>
